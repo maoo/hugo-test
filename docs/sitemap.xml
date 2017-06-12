@@ -3,86 +3,86 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/integrations/github/</loc>
+    <loc>http://blog.session.it/hugo-test/integrations/github/</loc>
     <lastmod>2017-06-12T00:11:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/integrations/jira/</loc>
+    <loc>http://blog.session.it/hugo-test/integrations/jira/</loc>
     <lastmod>2017-06-12T17:06:30+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/architecture/</loc>
+    <loc>http://blog.session.it/hugo-test/architecture/</loc>
     <lastmod>2017-06-12T00:11:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/integrations/salesforce/</loc>
+    <loc>http://blog.session.it/hugo-test/integrations/salesforce/</loc>
     <lastmod>2017-06-12T17:06:21+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/integrations/</loc>
+    <loc>http://blog.session.it/hugo-test/integrations/</loc>
     <lastmod>2017-06-12T00:11:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/integrations/trello/</loc>
+    <loc>http://blog.session.it/hugo-test/integrations/trello/</loc>
     <lastmod>2017-06-12T17:06:26+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/quickstart/</loc>
+    <loc>http://blog.session.it/hugo-test/quickstart/</loc>
     <lastmod>2017-06-12T00:11:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/integrations/universal/</loc>
+    <loc>http://blog.session.it/hugo-test/integrations/universal/</loc>
     <lastmod>2017-06-12T17:06:35+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/integrations/zapier/</loc>
+    <loc>http://blog.session.it/hugo-test/integrations/zapier/</loc>
     <lastmod>2017-06-12T00:11:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/</loc>
+    <loc>http://blog.session.it/hugo-test/</loc>
     <lastmod>2017-06-12T00:11:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/architecture/</loc>
-    <lastmod>2017-06-12T00:11:02+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/integrations/</loc>
+    <loc>http://blog.session.it/hugo-test/architecture/</loc>
     <lastmod>2017-06-12T00:11:02+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/quickstart/</loc>
+    <loc>http://blog.session.it/hugo-test/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.session.it/hugo-test/integrations/</loc>
     <lastmod>2017-06-12T00:11:02+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/</loc>
+    <loc>http://blog.session.it/hugo-test/quickstart/</loc>
     <lastmod>2017-06-12T00:11:02+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://symphonyoss.github.io/Integrations-Docs/tags/</loc>
+    <loc>http://blog.session.it/hugo-test/</loc>
+    <lastmod>2017-06-12T00:11:02+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.session.it/hugo-test/tags/</loc>
     <priority>0</priority>
   </url>
   
