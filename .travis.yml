@@ -19,7 +19,7 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-before_install: "wget https://github.com/spf13/hugo/releases/download/v0.22/hugo_0.22_amd64.deb ; sudo dpkg -i hugo*.deb ; hugo version"
+before_install: "wget https://github.com/spf13/hugo/releases/download/v0.22/hugo_0.22_Linux-64bit.deb ; sudo dpkg -i hugo*.deb ; hugo version"
 
 install: true
 
