@@ -2,7 +2,7 @@
 baseurl = "http://blog.session.it/hugo-test"
 
 languageCode = "en-us"
-title = "Symphony Integrations official documentation!"
+title = "Symphony Integrations official documentation!!!"
 theme = "material"
 metadataformat = "yaml"
 canonifyurls = true
