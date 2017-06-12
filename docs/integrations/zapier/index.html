@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Zapier Integration - Symphony Integrations official documentation</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    
+    <meta name="description" content="Symphony Integrations documentation.">
+    
+    <link rel="canonical" href="https://symphonyoss.github.io/Integrations-Docs/integrations/zapier/">
+    
+    <meta name="author" content="Symphony LLC">
+    
+
+    <meta property="og:url" content="https://symphonyoss.github.io/Integrations-Docs/integrations/zapier/">
+    <meta property="og:title" content="Symphony Integrations official documentation">
+    <meta property="og:image" content="https://symphonyoss.github.io/SymphonyLlcSymbol.png">
+    <meta name="apple-mobile-web-app-title" content="Symphony Integrations official documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://symphonyoss.github.io/Integrations-Docs/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://symphonyoss.github.io/Integrations-Docs/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.eot');
+        src: url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.woff')
+               format('woff'),
+             url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.ttf')
+               format('truetype'),
+             url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://symphonyoss.github.io/Integrations-Docs/stylesheets/application.css">
+    <link rel="stylesheet" href="https://symphonyoss.github.io/Integrations-Docs/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://symphonyoss.github.io/Integrations-Docs/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://symphonyoss.github.io/Integrations-Docs/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://symphonyoss.github.io/Integrations-Docs/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-grey palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Zapier Integration
+      </div>
+    </div>
+
+    
+    <div class="button button-twitter" role="button" aria-label="Twitter">
+       <a href="https://twitter.com/symphonyOSS" title="@symphonyOSS on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+    </div>
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/symphonyoss" title="@symphonyoss on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://symphonyoss.github.io/Integrations-Docs" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://symphonyoss.github.io/Integrations-Docs/SymphonyLlcSymbol.png">
+        </div>
+      
+      <div class="name">
+        <strong>Symphony Integrations official documentation </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Welcome" href="https://symphonyoss.github.io/Integrations-Docs/">
+	
+	Welcome
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="https://symphonyoss.github.io/Integrations-Docs/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Integrations</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Github" href="https://symphonyoss.github.io/Integrations-Docs/integrations/github">
+	
+	Github
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="JIRA" href="https://symphonyoss.github.io/Integrations-Docs/integrations/jira">
+	
+	JIRA
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Trello" href="https://symphonyoss.github.io/Integrations-Docs/integrations/trello">
+	
+	Trello
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Salesforce" href="https://symphonyoss.github.io/Integrations-Docs/integrations/salesforce">
+	
+	Salesforce
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Universal" href="https://symphonyoss.github.io/Integrations-Docs/integrations/universal">
+	
+	Universal
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Zapier" href="https://symphonyoss.github.io/Integrations-Docs/integrations/zapier">
+	
+	Zapier
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Build your own" href="https://symphonyoss.github.io/Integrations-Docs/quickstart/">
+	
+	Build your own
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+          <li>
+            <a href="https://twitter.com/symphonyOSS" target="_blank" title="@symphonyOSS on Twitter">
+              @symphonyOSS on Twitter
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://github.com/symphonyoss" target="_blank" title="@symphonyoss on GitHub">
+              @symphonyoss on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Zapier Integration </h1>
+
+			
+
+<p>The Zapier WebHook Integration will allow you to add an ecosystem of 600+ apps to the Symphony platform. Zapier sends notifications and content to Symphony IMs or rooms from your favorite applications including GMail, Office 365, Trello, HubSpot, Twitter, LinkedIn, and hundreds of other productivity apps.</p>
+
+<p><a href="https://zapier.com/zapbook/symphony/">See Symphony on Zapier here</a></p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>With access to a Zapier account, you can configure Zaps in order to receive notifications on Symphony.
+A Zap is a blueprint for a workflow you want to do over and over again automatically. Creating a Zap involves choosing a <em>trigger</em> and adding one or more <em>action</em> steps.</p>
+
+<p>Symphony supports Zapier <strong>actions</strong> to post messages to Symphony via WebHooks. <em>Symphony cannot be used as a trigger on Zapier.</em></p>
+
+<h2 id="what-formats-and-events-it-supports-and-what-it-produces">What formats and events it supports and what it produces</h2>
+
+<p>Every integration will receive a message sent in a specific format (depending on the system it ingests) and will usually convert it into an &ldquo;entity&rdquo; before it reaches the Symphony platform. It will also, usually, identify the kind of message based on an &ldquo;event&rdquo; identifier, which varies based on the third-party system.</p>
+
+<p>You can find more details about entities and the Symphony Message ML format <a href="https://github.com/symphonyoss/App-Integrations-Core#the-message-ml-format">here</a>.</p>
+
+<p>We currently support any action that can be configured via our <a href="https://zapier.com/zapbook/symphony/">Symphony Zapbook</a> on Zapier.</p>
+
+<p>There, you can choose an icon and define a message header and body.</p>
+
+<p>The message header and body must follow the rules for Symphony Message ML, which can be accessed <a href="https://rest-api.symphony.com/docs/message-format/">here</a>, although you can safely insert plain text and dynamic trigger app information (like a trigger-related name, title or anything that will translate to text in your message).</p>
+
+<h3 id="sample-action">Sample Action</h3>
+
+<p>Here we will show you a sample payload from Zapier, the Message ML generated by the Integration Bridge, and the message as it is rendered in Symphony. This payload would be the result of a Zap configured to trigger upon the “card created” event in Trello.</p>
+
+<h4 id="zapier-payload-reporting-a-trello-event">Zapier payload (reporting a Trello event)</h4>
+
+<pre><code class="language-json">{
+  &quot;auth_fields&quot;: {},
+  &quot;request&quot;: {
+    &quot;files&quot;: {},
+    &quot;url&quot;: &quot;http://requestb.in/1miwh011&quot;,
+    &quot;headers&quot;: {
+      &quot;Content-Type&quot;: &quot;application/json; charset=utf-8&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;
+    },
+    &quot;params&quot;: {},
+    &quot;data&quot;: &quot;{\&quot;message_content\&quot;: \&quot;Test Message Body:\\n* Card Test Trello have just been created\&quot;, \&quot;message_header\&quot;: \&quot;Test Message Header: Trello card Test Trello created\&quot;, \&quot;webhook_url\&quot;: \&quot;http://requestb.in/1miwh011\&quot;}&quot;,
+    &quot;method&quot;: &quot;POST&quot;
+  },
+  &quot;action_fields&quot;: {
+    &quot;message_content&quot;: &quot;Test Message Body:\n* Card Test Trello have just been created&quot;,
+    &quot;message_header&quot;: &quot;Test Message Header: Trello card Test Trello created&quot;,
+    &quot;webhook_url&quot;: &quot;http://requestb.in/1miwh011&quot;
+  },
+  &quot;action_fields_full&quot;: {
+    &quot;message_content&quot;: &quot;Test Message Body:\n* Card Test Trello have just been created&quot;,
+    &quot;message_header&quot;: &quot;Test Message Header: Trello card Test Trello created&quot;,
+    &quot;webhook_url&quot;: &quot;http://requestb.in/1miwh011&quot;
+  },
+  &quot;meta&quot;: {
+    &quot;frontend&quot;: true
+  },
+  &quot;action_fields_raw&quot;: {
+    &quot;message_content&quot;: &quot;Test Message Body:\n* Card {{15919238__name}} have just been created&quot;,
+    &quot;message_header&quot;: &quot;Test Message Header: Trello card {{15919238__name}} created&quot;,
+    &quot;webhook_url&quot;: &quot;http://requestb.in/1miwh011&quot;
+  },
+  &quot;url_raw&quot;: &quot;{{webhook_url}}&quot;,
+  &quot;zap&quot;: {
+    &quot;live&quot;: true,
+    &quot;link&quot;: &quot;https://zapier.com/app/editor/15919238&quot;,
+    &quot;name&quot;: &quot;Test Trello!&quot;,
+    &quot;user&quot;: {
+      &quot;timezone&quot;: &quot;Atlantic/South_Georgia&quot;
+    }
+  }
+}
+</code></pre>
+
+<h4 id="generated-symphony-message-and-json-entity-messageml-v2">Generated Symphony Message and Json entity (MessageML V2)</h4>
+
+<p>When the Integration Bridge posts messages through the Agent that has version equal or greater than &lsquo;1.46.0&rsquo; the
+generated Symphony Message must follow the MessageML V2 specification.</p>
+
+<p>The Zapier integration on the Integration Bridge parses the JSON payload that Zapier sent, and generates messageMLv2 and EntityJSON.</p>
+
+<p>More information about MessageML V2 specification can be accessed <a href="https://symphonyoss.atlassian.net/wiki/display/WGFOS/MessageML+V2+Draft+Proposal+-+For+Discussion">here</a></p>
+
+<p>This is the messageML v2 that the Zapier integration generates after parsing, which defines the layout of the card and how the front end will render it within Symphony:</p>
+
+<pre><code class="language-xml">&lt;messageML&gt;
+    &lt;div class=&quot;entity&quot; data-entity-id=&quot;zapierPostMessage&quot;&gt;
+        &lt;card class=&quot;barStyle&quot; iconSrc=&quot;${entity['zapierPostMessage'].message.icon}&quot;&gt;
+            &lt;header&gt;
+                &lt;span&gt;${entity['zapierPostMessage'].message.header}&lt;/span&gt;
+            &lt;/header&gt;
+            &lt;body&gt;
+                &lt;div class=&quot;labelBackground badge&quot;&gt;
+                    &lt;span&gt;${entity['zapierPostMessage'].message.body}&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+        &lt;/card&gt;
+    &lt;/div&gt;
+&lt;/messageML&gt;
+</code></pre>
+
+<p>This is the EntityJSON that the Zapier integration generates after parsing, which defines the content of the card that the front-end will use in combination with the MessageML v2 to render the card:</p>
+
+<pre><code class="language-json">{
+  &quot;zapierPostMessage&quot;: {
+    &quot;type&quot;: &quot;com.symphony.integration.zapier.event.v2.postMessage&quot;,
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;message&quot; : {
+        &quot;type&quot;: &quot;com.symphony.integration.zapier.event.message&quot;,
+        &quot;version&quot;: &quot;1.0&quot;,
+        &quot;header&quot;: &quot;Test Message Header: Trello card Test Trello created&quot;,
+        &quot;body&quot;: &quot;Test Message Body:&lt;br/&gt;* Card Test Trello have just been created&quot;,
+        &quot;icon&quot;: &quot;http://icon.com/icon&quot;
+    }
+  }
+}
+</code></pre>
+
+<h4 id="message-rendered-on-symphony">Message rendered on Symphony</h4>
+
+<p><img src="https://symphonyoss.github.io/Integrations-Docs/sample_trello_action_rendered.png" alt="Sample Action" /></p>
+
+<h2 id="messages-color-mapping">Messages color mapping</h2>
+
+<p>For all Zapier notifications, the flair color (vertical bar on the left) will be <strong>gray</strong>. This can change in future implementations.</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2017 Released under the Apache 2.0 license &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://symphonyoss.github.io/Integrations-Docs/integrations/universal/" title="Universal Integration">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Universal Integration
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://symphonyoss.github.io/Integrations-Docs/" title="Welcome to Symphony Integrations">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Welcome to Symphony Integrations
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://symphonyoss.github.io/Integrations-Docs/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

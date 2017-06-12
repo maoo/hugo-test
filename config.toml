@@ -7,6 +7,9 @@ canonifyurls = true
 # Enable Google Analytics by entering your tracking id
 googleAnalytics = ""
 
+# Generate HTML in the docs folder
+publishDir = "docs"
+
 [params]
 	# General information
 	author = "Symphony LLC"

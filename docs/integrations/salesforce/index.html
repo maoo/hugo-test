@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Salesforce Integration - Symphony Integrations official documentation</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    
+    <meta name="description" content="Symphony Integrations documentation.">
+    
+    <link rel="canonical" href="https://symphonyoss.github.io/Integrations-Docs/integrations/salesforce/">
+    
+    <meta name="author" content="Symphony LLC">
+    
+
+    <meta property="og:url" content="https://symphonyoss.github.io/Integrations-Docs/integrations/salesforce/">
+    <meta property="og:title" content="Symphony Integrations official documentation">
+    <meta property="og:image" content="https://symphonyoss.github.io/SymphonyLlcSymbol.png">
+    <meta name="apple-mobile-web-app-title" content="Symphony Integrations official documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://symphonyoss.github.io/Integrations-Docs/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://symphonyoss.github.io/Integrations-Docs/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.eot');
+        src: url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.woff')
+               format('woff'),
+             url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.ttf')
+               format('truetype'),
+             url('https://symphonyoss.github.io/Integrations-Docs/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://symphonyoss.github.io/Integrations-Docs/stylesheets/application.css">
+    <link rel="stylesheet" href="https://symphonyoss.github.io/Integrations-Docs/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://symphonyoss.github.io/Integrations-Docs/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://symphonyoss.github.io/Integrations-Docs/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://symphonyoss.github.io/Integrations-Docs/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-grey palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Salesforce Integration
+      </div>
+    </div>
+
+    
+    <div class="button button-twitter" role="button" aria-label="Twitter">
+       <a href="https://twitter.com/symphonyOSS" title="@symphonyOSS on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+    </div>
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/symphonyoss" title="@symphonyoss on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://symphonyoss.github.io/Integrations-Docs" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://symphonyoss.github.io/Integrations-Docs/SymphonyLlcSymbol.png">
+        </div>
+      
+      <div class="name">
+        <strong>Symphony Integrations official documentation </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Welcome" href="https://symphonyoss.github.io/Integrations-Docs/">
+	
+	Welcome
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Architecture" href="https://symphonyoss.github.io/Integrations-Docs/architecture/">
+	
+	Architecture
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Integrations</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Github" href="https://symphonyoss.github.io/Integrations-Docs/integrations/github">
+	
+	Github
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="JIRA" href="https://symphonyoss.github.io/Integrations-Docs/integrations/jira">
+	
+	JIRA
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Trello" href="https://symphonyoss.github.io/Integrations-Docs/integrations/trello">
+	
+	Trello
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Salesforce" href="https://symphonyoss.github.io/Integrations-Docs/integrations/salesforce">
+	
+	Salesforce
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Universal" href="https://symphonyoss.github.io/Integrations-Docs/integrations/universal">
+	
+	Universal
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Zapier" href="https://symphonyoss.github.io/Integrations-Docs/integrations/zapier">
+	
+	Zapier
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Build your own" href="https://symphonyoss.github.io/Integrations-Docs/quickstart/">
+	
+	Build your own
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+          <li>
+            <a href="https://twitter.com/symphonyOSS" target="_blank" title="@symphonyOSS on Twitter">
+              @symphonyOSS on Twitter
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://github.com/symphonyoss" target="_blank" title="@symphonyoss on GitHub">
+              @symphonyoss on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Salesforce Integration </h1>
+
+			
+
+<p>The Salesforce WebHook Integration will allow you to receive notifications in Symphony when a Salesforce opportunity, account or an executive dashboard changes state.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>Unlike JIRA and GitHub, Salesforce does not provide out-of-the-box Webhook support. As such, while in beta, Symphony provides directly to customers an unmanaged package consisting of an Apex trigger and configuration object to achieve this functionality. As a Salesforce administrator, you can configure the unmanaged packaged with the webhook URL generated by the Salesforce Application available in the Symphony Market. You’ll then start receiving notifications for opportunity updates. Symphony will later distribute this integration through a managed Salesforce package.</p>
+
+<h2 id="what-formats-and-events-it-support-and-what-it-produces">What formats and events it support and what it produces</h2>
+
+<p>Every integration will receive a message sent in a specific format (depending on the system it ingests) and will usually convert it into an internal format before it reaches the Symphony platform. It will also, usually, identify the kind of message based on an &ldquo;event&rdquo; identifier, which varies based on the third-party system.</p>
+
+<p>Currently we support the following one event from Salesforce: opportunity notification. Each one can be enabled when configuring your WebHook in the Salesforce system configuration. Below we will detail one event as an example. This example has the JSON payload sent by Salesforce&rsquo;s webhook, the Message ML v2 and EntityJSON generated by the Integration Bridge, and how the message is rendered on Symphony.</p>
+
+<h3 id="an-example-opportunity-notification">An Example: Opportunity Notification</h3>
+
+<p>Here we will show a sample payload of an opportunity notification on Salesforce, with the received payload, the MessageML generated by the Integration Bridge, and the message as it is rendered in Symphony.</p>
+
+<h5 id="message-sent-from-salesforce-webhook">Message sent from Salesforce webhook</h5>
+
+<pre><code class="language-json">{
+  &quot;previous&quot;: {
+    &quot;opportunity&quot;: {
+      &quot;Type&quot;: &quot;New Customer&quot;,
+      &quot;StageName&quot;: &quot;Proposal/Price Quote&quot;,
+      &quot;Probability&quot;: &quot;75%&quot;,
+      &quot;Name&quot;: &quot;Old Opportunity Test&quot;,
+      &quot;CloseDate&quot;: &quot;2015-02-12T00:00:00.000Z&quot;,
+      &quot;Account&quot;: {
+        &quot;Link&quot;: &quot;https://link.to.the.opportunity.at.salesforce/path/the/opportunity/at/salesforce&quot;,
+        &quot;Name&quot;: &quot;Opportunity plc&quot;,
+        &quot;Id&quot;: &quot;00856003404oPCeAAM&quot;
+      }
+    }
+  },
+  &quot;current&quot;: {
+    &quot;opportunity&quot;: {
+      &quot;LastModifiedBy&quot;: {
+        &quot;Email&quot;: &quot;Cassiano.Repache@symphony.com&quot;,
+        &quot;Name&quot;: &quot;Cassiano Cesar Repache&quot;,
+        &quot;Id&quot;: &quot;00578000000ZJrdAAG&quot;
+      },
+      &quot;Account&quot;: {
+        &quot;Link&quot;: &quot;https://link.to.the.opportunity.at.salesforce/path/to/the/opportunity/at/salesforce&quot;,
+        &quot;Name&quot;: &quot;Test Account&quot;,
+        &quot;Id&quot;: &quot;00146000344oPCcAAM&quot;
+      },
+      &quot;Owner&quot;: {
+        &quot;Email&quot;: &quot;rsanchez@symphony.com&quot;,
+        &quot;Name&quot;: &quot;Robson Sanchez&quot;,
+        &quot;Id&quot;: &quot;00546000000ZJrdAAG&quot;
+      },
+      &quot;TotalOpportunityQuantity&quot;: null,
+      &quot;Probability&quot;: &quot;90%&quot;,
+      &quot;NextStep&quot;: &quot;&quot;,
+      &quot;Amount&quot;: 1000.00,
+      &quot;StageName&quot;: &quot;Negotiation/Review&quot;,
+      &quot;Type&quot;: &quot;Existing Customer - Downgrade&quot;,
+      &quot;CurrencyIsoCode&quot;: &quot;EUR&quot;,
+      &quot;CloseDate&quot;: &quot;2015-02-05 08:00:00T00:00:00.000Z&quot;,
+      &quot;Link&quot;: &quot;https://link.to.the.opportunity.at.salesforce/path/to/the/opportunity/at/salesforce&quot;,
+      &quot;Name&quot;: &quot;New Opportunity Test&quot;,
+      &quot;Id&quot;: &quot;00646002303IyLaAAK&quot;
+    }
+  }
+}
+</code></pre>
+
+<h5 id="generated-symphony-message-and-json-entity-messageml-v2">Generated Symphony Message and Json entity (MessageML V2)</h5>
+
+<p>When the Integration Bridge posts messages through the Agent that has version equal or greater than &lsquo;1.46.0&rsquo; the
+generated Symphony Message must follow the MessageML V2 specification.</p>
+
+<p>More information about MessageML V2 specification can be accessed <a href="https://symphonyoss.atlassian.net/wiki/display/WGFOS/MessageML+V2+Draft+Proposal+-+For+Discussion">here</a></p>
+
+<p>This is the messageML v2 that the Salesforce integration generates after parsing, which defines the layout of the card and how the front end will render it within Symphony:</p>
+
+<pre><code class="language-xml">&lt;messageML&gt;
+    &lt;div class=&quot;entity&quot; data-entity-id=&quot;OpportunityNotification&quot;&gt;
+        &lt;card class=&quot;barStyle&quot; accent=&quot;tempo-bg-color--green&quot; iconSrc=&quot;${entity['OpportunityNotification'].current.opportunity.URLIconIntegration}&quot;&gt;
+            &lt;header&gt;
+                &lt;img src=&quot;${entity['OpportunityNotification'].current.opportunity.IconCrown}&quot; class=&quot;icon&quot; /&gt;
+                &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Opportunity: &lt;/span&gt;
+                &lt;a class=&quot;tempo-text-color--link&quot; href=&quot;${entity['OpportunityNotification'].current.opportunity.Link}&quot;&gt;${entity['OpportunityNotification'].current.opportunity.Name}&lt;/a&gt;
+                &lt;span class=&quot;tempo-text-color--green&quot;&gt; - ${entity['OpportunityNotification'].current.opportunity.CreatedOrUpdated}&lt;/span&gt;
+                &lt;span&gt;${entity['OpportunityNotification'].current.opportunity.UpdatedFields}&lt;/span&gt;
+            &lt;/header&gt;
+            &lt;body&gt;
+                &lt;div&gt;
+                    &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Account Name:&lt;/span&gt;
+                    &lt;#if (entity['OpportunityNotification'].current.opportunity.Account.Link)??&gt;
+                        &lt;a class=&quot;tempo-text-color--link&quot; href=&quot;${entity['OpportunityNotification'].current.opportunity.Account.Link}&quot;&gt;${entity['OpportunityNotification'].current.opportunity.Account.Name}&lt;/a&gt;
+                    &lt;#else&gt;
+                        &lt;span&gt;${entity['OpportunityNotification'].current.opportunity.Account.Name}&lt;/span&gt;
+                    &lt;/#if&gt;
+                &lt;/div&gt;
+                &lt;br/&gt;
+                &lt;div&gt;
+                    &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Opportunity Owner:&lt;/span&gt;
+		    &lt;#if (entity['OpportunityNotification'].current.opportunity.Owner.hasOwnerAtSymphony == &quot;true&quot;)&gt;
+                        &lt;mention email=&quot;${entity['OpportunityNotification'].current.opportunity.Owner.Email}&quot; /&gt;
+                    &lt;#else&gt;
+                        &lt;span&gt;${entity['OpportunityNotification'].current.opportunity.Owner.Name} - ${entity['OpportunityNotification'].current.opportunity.Owner.Email}&lt;/span&gt;
+                    &lt;/#if&gt;
+                &lt;/div&gt;
+                &lt;br/&gt;
+                &lt;div&gt;
+                    &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Amount:&lt;/span&gt;
+                    &lt;span&gt;${entity['OpportunityNotification'].current.opportunity.Amount} - ${entity['OpportunityNotification'].current.opportunity.CurrencyIsoCode}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;br/&gt;
+                &lt;div&gt;
+                    &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Next Step:&lt;/span&gt;
+                    &lt;span&gt;${entity['OpportunityNotification'].current.opportunity.CloseDate}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;br/&gt;
+                &lt;div&gt;
+                    &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Type:&lt;/span&gt;
+                    &lt;span&gt;${entity['OpportunityNotification'].current.opportunity.Type}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;hr/&gt;
+                &lt;div&gt;
+                    &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Close Date:&lt;/span&gt;
+                    &lt;span&gt;${entity['OpportunityNotification'].current.opportunity.CloseDate}&lt;/span&gt;
+                    &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Probability:&lt;/span&gt;
+                    &lt;span&gt;${entity['OpportunityNotification'].current.opportunity.Probability}&lt;/span&gt;
+                    &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Stage:&lt;/span&gt;
+                    &lt;span class=&quot;tempo-text-color--white tempo-bg-color--yellow tempo-token&quot;&gt;${entity['OpportunityNotification'].current.opportunity.StageName}&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+        &lt;/card&gt;
+    &lt;/div&gt;
+&lt;/messageML&gt;
+</code></pre>
+
+<p>This is the EntityJSON that the Salesforce integration generates after parsing, which defines the content of the card that the front-end will use in combination with the MessageML v2 to render the card:</p>
+
+<pre><code class="language-json">{  
+   &quot;OpportunityNotification&quot;:{  
+      &quot;type&quot;:&quot;com.symphony.integration.salesforce.event.v2.OpportunityNotification&quot;,
+      &quot;version&quot;:&quot;1.0&quot;,
+      &quot;current&quot;:{  
+         &quot;type&quot;:&quot;com.symphony.integration.salesforce.current&quot;,
+         &quot;version&quot;:&quot;1.0&quot;,
+         &quot;opportunity&quot;:{  
+            &quot;type&quot;:&quot;opportunity&quot;,
+            &quot;version&quot;:&quot;1.0&quot;,
+            &quot;Name&quot;:&quot;New Opportunity Test&quot;,
+            &quot;Type&quot;:&quot;Existing Customer - Downgrade&quot;,
+            &quot;Link&quot;:&quot;https://link.to.the.opportunity.at.salesforce/path/to/the/opportunity/at/salesforce&quot;,
+            &quot;NextStep&quot;:&quot;-&quot;,
+            &quot;StageName&quot;:&quot;Negotiation/Review&quot;,
+            &quot;CloseDate&quot;:&quot;2015-02-05&quot;,
+            &quot;Probability&quot;:&quot;90%&quot;,
+            &quot;Amount&quot;:&quot;1,000.00&quot;,
+            &quot;CurrencyIsoCode&quot;:&quot;EUR&quot;,
+            &quot;UpdatedFields&quot;:&quot;type, stage, probability, name, close date, account&quot;,
+            &quot;CreatedOrUpdated&quot;:&quot;Updated&quot;,
+            &quot;URLIconIntegration&quot;:&quot;https://nexus2.symphony.com/apps/salesforce/img/salesforce.svg&quot;,
+            &quot;IconCrown&quot;:&quot;https://nexus2.symphony.com/apps/salesforce/img/new_opportunity.svg&quot;,
+            &quot;LastModifiedBy&quot;:{  
+               &quot;type&quot;:&quot;com.symphony.integration.salesforce.LastModifiedBy&quot;,
+               &quot;version&quot;:&quot;1.0&quot;,
+               &quot;Name&quot;:&quot;Cassiano Cesar Repache&quot;,
+               &quot;Email&quot;:&quot;Cassiano.Repache@symphony.com&quot;
+            },
+            &quot;Account&quot;:{  
+               &quot;type&quot;:&quot;com.symphony.integration.salesforce.Account&quot;,
+               &quot;version&quot;:&quot;1.0&quot;,
+               &quot;Name&quot;:&quot;Test Account&quot;,
+               &quot;Link&quot;:&quot;https://link.to.the.opportunity.at.salesforce/path/to/the/opportunity/at/salesforce&quot;
+            },
+            &quot;Owner&quot;:{  
+               &quot;type&quot;:&quot;com.symphony.integration.salesforce.Owner&quot;,
+               &quot;version&quot;:&quot;1.0&quot;,
+               &quot;Name&quot;:&quot;Robson Sanchez&quot;,
+               &quot;Email&quot;:&quot;rsanchez@symphony.com&quot;,
+	       &quot;hasOwnerAtSymphony&quot;: &quot;true&quot;
+            }
+         }
+      }
+   }
+}
+</code></pre>
+
+<h5 id="message-rendered-on-symphony">Message rendered on Symphony</h5>
+
+<p><img src="src/docs/sample/MessageMLv2.png" alt="Opportunity" /></p>
+
+<h3 id="messages-color-mapping">Messages color mapping</h3>
+
+<p>Salesforce currently only supports opportunity notification. The flair color (vertical bar on the left) will be always <strong>green</strong> for this event. This can change as we support more events.</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2017 Released under the Apache 2.0 license &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://symphonyoss.github.io/Integrations-Docs/architecture/" title="Architecture">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Architecture
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://symphonyoss.github.io/Integrations-Docs/integrations/" title="Integrations">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Integrations
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://symphonyoss.github.io/Integrations-Docs/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quickstarts on Symphony Integrations official documentation</title>
+    <link>https://symphonyoss.github.io/Integrations-Docs/quickstart/</link>
+    <description>Recent content in Quickstarts on Symphony Integrations official documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the Apache 2.0 license</copyright>
+    <lastBuildDate>Mon, 12 Jun 2017 00:11:02 +0100</lastBuildDate>
+    
+	<atom:link href="https://symphonyoss.github.io/Integrations-Docs/quickstart/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quickstart - build your own integration</title>
+      <link>https://symphonyoss.github.io/Integrations-Docs/quickstart/</link>
+      <pubDate>Mon, 12 Jun 2017 00:11:02 +0100</pubDate>
+      
+      <guid>https://symphonyoss.github.io/Integrations-Docs/quickstart/</guid>
+      <description>This page will guide a developer to build an integration module to be used with the Integration Bridge, using the Symphony-Zapier integration as example:
+Prerequisites Installation prerequisites:
+ JDK 1.8 Maven 3.0.5+ Node 6.10+ Gulp (globally installed) Webpack (globally installed)  Symphony Pod access prerequisites:
+ Access to a Symphony Pod to be used for development and testing purposes  User Account (username/password credentials) Service Account (*.p12 User Identity certificate and certificate password) Symphony API (Agent, Pod, Sessionauth, Keymanager) endpoints (ask your Symphony Pod Administrator), reachable from your current workstation  .</description>
+    </item>
+    
+  </channel>
+</rss>
