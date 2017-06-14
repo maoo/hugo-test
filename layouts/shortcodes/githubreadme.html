@@ -1,0 +1,19 @@
+<script src="https://cdn.rawgit.com/showdownjs/showdown/1.7.1/dist/showdown.min.js"></script>
+
+<script>
+	//showdown.setFlavor('github');
+	var converter = new showdown.Converter();
+	fetch('{{ .Get "rawUrl" }}').then(function(response) {
+		response.text().then(function(text) {
+		  //txt = '#hello, markdown!';
+	      console.log(text);
+	      var html = converter.makeHtml(text);
+	      console.log(html);
+	      document.getElementById('readme-{{ .Get "name" }}').innerHTML = html;
+	    });
+	}).catch(function(err) {
+		console.log(err);
+		console.log("Error fetching/rendering {{ .Get "rawUrl" }}");
+	});
+</script>
+<div id="readme-{{ .Get "name" }}"/>
