@@ -337,200 +337,25 @@
 		<div class="wrapper">
 			<h1>Github Integration </h1>
 
-			
+			<script src="https://cdn.rawgit.com/showdownjs/showdown/1.7.1/dist/showdown.min.js"></script>
 
-<p>The GitHub Webhook Integration will allow you to receive notifications in Symphony for many of the important actions taken by you and others in your repositories, such as a push of new commits, the opening of a pull request, or the creation of a release.</p>
-
-<h2 id="how-it-works">How it works</h2>
-
-<p>As the GitHub admin of a repository, you can configure a WebHook to post messages to a URL you generate in the GitHub Application to start receiving notifications for the supported events.</p>
-
-<h2 id="using-a-custom-trust-store">Using a custom trust store</h2>
-
-<p>GitHub integration connects to the GitHub service to retrieve information about users (user name) and display it on webhook events.</p>
-
-<p>When using a custom trust store for the Integration Bridge, make sure it also includes the proper certificate to connect to the GitHub service. If GitHub is used as a cloud service, download the certificate from GitHub domain and add it to the custom trust store. In case GitHub is deployed on premises, make sure the trust store contains the certificate to connect to the on-prem server and the Integration Bridge can also access that server through the network.</p>
-
-<p>In case the Integration Bridge can not access GitHub, webhooks will still work, but only usernames will be displayed on the events.</p>
-
-<h2 id="what-formats-and-events-it-supports-and-what-it-produces">What formats and events it supports and what it produces</h2>
-
-<p>As of the current version, one must set the WebHook Content type to application/json, as shown below:
-<img src="src/docs/sample/sample_webhook_content_type.png" alt="Selecting content type" /></p>
-
-<p>Every integration will receive a <a href="#json-received-from-github-check-it">message</a> sent in a specific format (depending on the system it ingests) and will usually convert it into an object called <strong>MessageML</strong> before it reaches the Symphony platform.</p>
-
-<p>The <strong>MessageML</strong> basically contains two structures:
-- A HTML <a href="#message-ml-template">template</a> used to format the message correctly. <em>It uses <a href="http://freemarker.org">Apache FreeMarker</a> conventions to parse the message correctly.</em>
-- A <a href="#message-ml-data-generated-by-the-parsers">JSON</a>, contaning the relevant data sent by the webhook.</p>
-
-<p>It will also, usually, identify the kind of message based on an &ldquo;event&rdquo; identifier, which varies based on the third-party system. <em>Note that currently only <strong>application/json</strong> media type is supported by GitHub integration.</em></p>
-
-<p>You can find more details about entities and the Symphony Message ML format <a href="https://github.com/symphonyoss/App-Integrations-Core#the-message-ml-format">here</a>.</p>
-
-<p>Currently we support the following ten events from GitHub:</p>
-
-<blockquote>
-<p><a href="https://developer.github.com/v3/activity/events/types/#createevent">Create a repository, branch, or tag</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#pullrequestevent">Pull Request</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#pushevent">Push Changes</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#pullrequestreviewcommentevent">Review Comment on Pull Request</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#deploymentevent">Makes a Deployment</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#deploymentstatusevent">Deployment Status Changes</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#commitcommentevent">Comment on Commits</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#issuecommentevent">Comment on Issues</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#publicevent">Makes a Repository Public</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#releaseevent">Create a Release Tag</a></p>
-
-<p><a href="https://developer.github.com/v3/activity/events/types/#statusevent">Status</a></p>
-</blockquote>
-
-<p>These can be found while configuring a WebHook on GitHub by the names mentioned here.</p>
-
-<p>We identify these events by looking at a header parameter that GitHub sends with each request, denoted by the key <em>X-GitHub-Event</em>.</p>
-
-<p>Below we&rsquo;ll detail the <strong>Pull Request</strong> event, from its <em>application/json</em> payload to the generated Symphony Message ML. <em>The other events follow the same format and behaviour.</em></p>
-
-<h3 id="pull-request">Pull Request</h3>
-
-<ul>
-<li>##### Event key: pull_request</li>
-<li>##### Actions supported: <em>opened, assigned, closed, labeled and reopened</em></li>
-<li>##### JSON received from GitHub: (<a href="src/docs/sample/payload_xgithubevent_pull_request.json">check it</a>)</li>
-
-<li><h5 id="message-ml-template">Message ML template</h5>
-
-<pre><code class="language-html">&lt;messageML&gt;
-&lt;div class=&quot;entity&quot; data-entity-id=&quot;githubPullRequest&quot;&gt;
-&lt;card class=&quot;barStyle&quot; iconSrc=&quot;${entity['githubPullRequest'].iconURL}&quot;&gt;
-  &lt;header&gt;
-    &lt;a href=&quot;${entity['githubPullRequest'].url}&quot;&gt;Pull Request #${entity['githubPullRequest'].number} &lt;/a&gt;
-    &lt;span class=&quot;tempo-text-color--normal&quot;&gt;${entity['githubPullRequest'].title} - &lt;/span&gt;
-    &lt;span class=&quot;tempo-text-color--green&quot;&gt;&lt;b&gt;${entity['githubPullRequest'].action} &lt;/b&gt;&lt;/span&gt;
-
-    &lt;#if entity['githubPullRequest'].action == 'assigned'&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;to &lt;/span&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;&lt;b&gt;${entity['githubPullRequest'].assignee.name} &lt;/b&gt;&lt;/span&gt;
-    &lt;#elseif entity['githubPullRequest'].action == 'labeled'&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;with &lt;/span&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;&lt;b&gt;${entity['githubPullRequest'].label.name} &lt;/b&gt;&lt;/span&gt;
-    &lt;#else&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;by &lt;/span&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;&lt;b&gt;${entity['githubPullRequest'].sender.name} &lt;/b&gt;&lt;/span&gt;
-    &lt;/#if&gt;
-  &lt;/header&gt;
-  &lt;body&gt;
-    &lt;p&gt;
-      &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Summary: &lt;/span&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;${entity['githubPullRequest'].body}&lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Commits in this PR: &lt;/span&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;${entity['githubPullRequest'].commits}&lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;PR State: &lt;/span&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;${entity['githubPullRequest'].state} &lt;/span&gt;
-      &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Merged: &lt;/span&gt;
-      &lt;#if entity['githubPullRequest'].merged == 'true'&gt;
-        &lt;span class=&quot;tempo-text-color--normal&quot;&gt;Yes &lt;/span&gt;
-      &lt;#else&gt;
-        &lt;span class=&quot;tempo-text-color--normal&quot;&gt;No &lt;/span&gt;
-      &lt;/#if&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &lt;span class=&quot;tempo-text-color--secondary&quot;&gt;Repositories involved: &lt;/span&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt;Changes from &lt;/span&gt;
-      &lt;a href=&quot;${entity['githubPullRequest'].repoHead.url}/tree/${entity['githubPullRequest'].repoHead.branch}&quot;&gt;
-        ${entity['githubPullRequest'].repoHead.fullName}:${entity['githubPullRequest'].repoHead.branch}
-      &lt;/a&gt;
-      &lt;span class=&quot;tempo-text-color--normal&quot;&gt; to &lt;/span&gt;
-      &lt;a href=&quot;${entity['githubPullRequest'].repoBase.url}/tree/${entity['githubPullRequest'].repoBase.branch}&quot;&gt;
-        ${entity['githubPullRequest'].repoBase.fullName}:${entity['githubPullRequest'].repoBase.branch}
-      &lt;/a&gt;
-    &lt;/p&gt;
-  &lt;/body&gt;
-&lt;/card&gt;
-&lt;/div&gt;
-&lt;/messageML&gt;
-</code></pre></li>
-
-<li><h5 id="message-ml-data-generated-by-the-parsers">Message ML data generated by the parsers</h5>
-
-<pre><code class="language-json">{
-&quot;githubPullRequest&quot;: {
-&quot;type&quot;: &quot;com.symphony.integration.github.event.v2.pullRequest&quot;,
-&quot;version&quot;: &quot;1.0&quot;,
-&quot;iconURL&quot;: &quot;symphony.com/img/github_logo.svg&quot;,
-&quot;action&quot;: &quot;opened&quot;,
-&quot;number&quot;: &quot;1&quot;,
-&quot;state&quot;: &quot;open&quot;,
-&quot;title&quot;: &quot;Update the README with new information&quot;,
-&quot;body&quot;: &quot;This is a pretty simple change that we need to pull into master.&quot;,
-&quot;url&quot;: &quot;https://github.com/baxterthehacker/public-repo/pull/1&quot;,
-&quot;merged&quot;: &quot;false&quot;,
-&quot;commits&quot;: &quot;1&quot;,
-&quot;repoHead&quot;: {
-  &quot;type&quot;: &quot;com.symphony.integration.github.repository&quot;,
-  &quot;version&quot;: &quot;1.0&quot;,
-  &quot;fullName&quot;: &quot;baxterthehacker/public-repo&quot;,
-  &quot;branch&quot;: &quot;changes&quot;,
-  &quot;url&quot;: &quot;https://github.com/baxterthehacker/public-repo&quot;
-},
-&quot;repoBase&quot;: {
-  &quot;type&quot;: &quot;com.symphony.integration.github.repository&quot;,
-  &quot;version&quot;: &quot;1.0&quot;,
-  &quot;fullName&quot;: &quot;baxterthehacker/public-repo&quot;,
-  &quot;branch&quot;: &quot;master&quot;,
-  &quot;url&quot;: &quot;https://github.com/baxterthehacker/public-repo&quot;
-},
-&quot;sender&quot;: {
-  &quot;type&quot;: &quot;com.symphony.integration.github.user&quot;,
-  &quot;version&quot;: &quot;1.0&quot;,
-  &quot;name&quot;: &quot;baxterthehacker&quot;
-}
-}
-}
-</code></pre></li>
-
-<li><h5 id="message-rendered-on-symphony">Message rendered on Symphony</h5></li>
-</ul>
-
-<p><img src="src/docs/sample/sample_pull_request_opened_rendered.png" alt="Pull Request Opened rendered" /></p>
-
-<h3 id="messages-color-mapping">Messages color mapping</h3>
-
-<p>To give a better visual information, Github&rsquo;s messages have specific flair color (vertical bar on the left) according to the event type, as follows:</p>
-
-<table>
-<thead>
-<tr>
-<th align="left">Event</th>
-<th align="center">Color</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="left">Create</td>
-<td align="center">Blue</td>
-</tr>
-
-<tr>
-<td align="left">All other events</td>
-<td align="center">Gray</td>
-</tr>
-</tbody>
-</table>
+<script>
+	
+	var converter = new showdown.Converter();
+	fetch('https:\/\/raw.githubusercontent.com\/symphonyoss\/App-Integrations-Github\/dev\/README.md').then(function(response) {
+		response.text().then(function(text) {
+		  
+	      console.log(text);
+	      var html = converter.makeHtml(text);
+	      console.log(html);
+	      document.getElementById('readme-github').innerHTML = html;
+	    });
+	}).catch(function(err) {
+		console.log(err);
+		console.log("Error fetching/rendering https:\/\/raw.githubusercontent.com\/symphonyoss\/App-Integrations-Github\/dev\/README.md");
+	});
+</script>
+<div id="readme-github"/>
 
 
 			<aside class="copyright" role="note">
