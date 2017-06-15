@@ -337,25 +337,125 @@
 		<div class="wrapper">
 			<h1>Universal Integration </h1>
 
-			<script src="https://cdn.rawgit.com/showdownjs/showdown/1.7.1/dist/showdown.min.js"></script>
+			
 
-<script>
-	
-	var converter = new showdown.Converter();
-	fetch('https:\/\/raw.githubusercontent.com\/symphonyoss\/App-Integrations-Universal\/dev\/README.md').then(function(response) {
-		response.text().then(function(text) {
-		  
-	      console.log(text);
-	      var html = converter.makeHtml(text);
-	      console.log(html);
-	      document.getElementById('readme-universal').innerHTML = html;
-	    });
-	}).catch(function(err) {
-		console.log(err);
-		console.log("Error fetching/rendering https:\/\/raw.githubusercontent.com\/symphonyoss\/App-Integrations-Universal\/dev\/README.md");
-	});
-</script>
-<div id="readme-universal"/>
+<p>The Universal Webhook Integration enables you to send messages directly from any service into a Symphony conversation of your choice - either a 1:1 IM with you, or a room that you are the owner of.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>If you have a service that can be configured to send webhooks, all you have to do is point it to the URL you generate in the Universal Webhook Application available on Symphony Market, and setup your service to post webhook payloads to that URL, in messageML format.</p>
+
+<h2 id="what-formats-and-events-it-support-and-what-it-produces">What formats and events it support and what it produces</h2>
+
+<p>Every integration will receive a message sent in a specific format (depending on the system it ingests) and will usually convert it into a Symphony MessageML before it reaches the Symphony platform. It will also, usually, identify the kind of message based on an &ldquo;event&rdquo; identifier, which varies based on the third-party system.</p>
+
+<p>The Universal Webhook on the other hand does not support any special events, and it merely forwards the message received (if valid). You can send in either messageMLv2 content, or legacy messageMLv1 content.</p>
+
+<h4 id="how-to-send-messages-into-symphony-using-the-universal-webhook">How to send messages into Symphony using the universal webhook</h4>
+
+<p>The Universal Webhook Integration can accept MessageMLv2 or legacy MessageMLv1.</p>
+
+<p>It deals with messages in the <code>xml</code>, <code>x-www-form-urlencode</code>, and <code>form-data</code> formats.</p>
+
+<p>To send messages using messageMLv2 you can use the following technique:</p>
+
+<ul>
+<li>Send your payload as <code>form-data</code>. You&rsquo;ll need to set the Content-Type to <code>multipart/form-data</code> and submit the messageML v2
+template in the &ldquo;message&rdquo; form field and the Entity JSON in the &ldquo;data&rdquo; form field. This option is only available when
+the Integration Bridge posts messages through the Agent that has version equal or greater than &lsquo;1.46.0&rsquo;</li>
+</ul>
+
+<p>Your message will need to be compliant with Symphony <a href="https://symphonyoss.atlassian.net/wiki/display/WGFOS/MessageML+V2+Draft+Proposal+-+For+Discussion">MessageML v2</a></p>
+
+<p>Here is an example of a message sent through the Universal Webhook, that looks like a Zapier card. You can customize the MessageMLv2 and Entity JSON to your liking, as long as it is valid, it will be passed through and rendered.</p>
+
+<ul>
+<li>This is the messageML v2 that the Universal Webhook integration received, which defines the layout of the card and how the front end will render it within Symphony:</li>
+</ul>
+
+<pre><code class="language-xml">&lt;messageML&gt;
+    &lt;div class=&quot;entity&quot; data-entity-id=&quot;zapierPostMessage&quot;&gt;
+        &lt;card class=&quot;barStyle&quot;&gt;
+            &lt;header&gt;        
+	      &lt;span&gt;${entity['zapierPostMessage'].message.header}&lt;/span&gt;
+            &lt;/header&gt;
+            &lt;body&gt;
+              &lt;span&gt;${entity['zapierPostMessage'].message.body}&lt;/span&gt;    
+            &lt;/body&gt;
+        &lt;/card&gt;
+    &lt;/div&gt;
+&lt;/messageML&gt;
+</code></pre>
+
+<ul>
+<li>This is the EntityJSON that the Universal Webhook integration received after parsing, which defines the content of the card that the front-end will use in combination with the MessageML v2 to render the card:</li>
+</ul>
+
+<pre><code class="language-json">{
+	&quot;zapierPostMessage&quot;: {
+		&quot;type&quot;: &quot;com.symphony.integration.zapier.event.v2.postMessage&quot;,
+		&quot;version&quot;: &quot;1.0&quot;,
+		&quot;message&quot; : {
+		    &quot;type&quot;: &quot;com.symphony.integration.zapier.event.message&quot;,
+		    &quot;version&quot;: &quot;1.0&quot;,
+		    &quot;header&quot;: &quot;New Trello Card Created&quot;,
+		    &quot;body&quot;: &quot;Card Name: Card added for symphony innovate&lt;br/&gt;Card Link: https://trello.com/c/8Md51YdW/15-card-added-for-symphony-innovate&quot;
+		}
+	}
+}
+</code></pre>
+
+<p>When rendered, the above MessageML v2 example will appear like so:</p>
+
+<p><img src="src/docs/images/sample_universal_rendered_v2.png" alt="Rendered MessageML v2" /></p>
+
+<p>To send legacy messages using MessageMLV1 you can use the following techniques:</p>
+
+<ul>
+<li><p>If you chose <code>xml</code>, you&rsquo;ll need to set the Content-Type to <code>application/xml</code> and submit the messageML payload in the message body.</p></li>
+
+<li><p>If you chose <code>x-www-form-urlencode</code>, you&rsquo;ll need to set the Content-Type to <code>application/x-www-form-urlencoded</code> and submit the messageML payload in the &ldquo;payload&rdquo; form field.</p></li>
+</ul>
+
+<p>Your message will need to be compliant with Symphony <a href="https://rest-api.symphony.com/docs/message-format/">MessageML v1</a></p>
+
+<h1 id="testing-with-postman-for-messagemlv1">Testing with Postman for MessageMLv1</h1>
+
+<p><a href="http://getpostman.com">Postman</a> is an application that makes it easy to test HTTP requests.</p>
+
+<ol>
+<li>Download and install Postman.</li>
+<li>Copy and paste your webhook URL into Postman</li>
+<li>Change the HTTP method to POST</li>
+<li>Click Body then select raw.</li>
+<li>Compose a messageML document in the body of the HTTP request. You can use the code samples below for pre-formatted messages.</li>
+<li>Click Send.</li>
+</ol>
+
+<pre><code class="language-sh">&lt;messageML&gt;
+This is an example of the sort of text that you can fit within the Universal Webhook Integration. Your service can post updates here!&lt;br/&gt;
+
+&lt;b&gt;You can also bold me&lt;/b&gt;: Or not.&lt;br/&gt;
+
+&lt;b&gt;You can submit links as well: &lt;/b&gt;&lt;a href=&quot;https://google.com&quot; /&gt;&lt;br/&gt;
+
+&lt;i&gt;You can make text render in italic font&lt;/i&gt;&lt;br/&gt;
+Labels can also come through: &lt;hash tag=&quot;label&quot;/&gt; and you can make tickers appear too: &lt;cash tag=&quot;GOOG&quot;/&gt;&lt;br/&gt;
+
+You can directly mention people using email matching: &lt;mention email=&quot;vincent@symphony.com&quot;/&gt;&lt;br/&gt;
+
+You can send lists too:&lt;br/&gt;
+&lt;ul&gt;&lt;li&gt;item1&lt;/li&gt;&lt;li&gt;item2&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+
+You can even send tables:&lt;br/&gt;
+
+&lt;table&gt;&lt;tr&gt;&lt;td&gt;header1&lt;/td&gt;&lt;td&gt;header2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;info1&lt;/td&gt;&lt;td&gt;info2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;info1&lt;/td&gt;&lt;td&gt;info2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;info1&lt;/td&gt;&lt;td&gt;info2&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/messageML&gt;
+</code></pre>
+
+<p>When rendered, the above MessageML v1 example will appear like so:</p>
+
+<p><img src="src/docs/images/sample_universal_rendered.png" alt="Rendered Message" /></p>
 
 
 			<aside class="copyright" role="note">
