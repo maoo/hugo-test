@@ -1,5 +1,4 @@
-# baseurl = "https://symphonyoss.github.io/Integrations-Docs"
-baseurl = "http://blog.session.it/hugo-test"
+baseurl = "https://symphonyoss.github.io/Integrations-Docs"
 
 languageCode = "en-us"
 title = "Symphony Integrations official documentation"
@@ -21,8 +20,7 @@ publishDir = "docs"
 
 	# Repository
 	provider = "GitHub"
-	# repo_url = "https://github.com/symphonyoss/Integrations-Docs"
-	# repo_url = "https://github.com/maoo/hugo-test"
+	repo_url = "https://github.com/symphonyoss/Integrations-Docs"
 
 	# version = "0.9.0"
 	logo = "/SymphonyLlcSymbol.png"
