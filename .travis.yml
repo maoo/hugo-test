@@ -23,10 +23,10 @@ env:
   global:
     # - travis encrypt GIT_TOKEN=...
     - secure: "Oq90kdcmd4Q5KhxtMGbKoQ2pFm13e2Ivt2DpS5PEeH8vkp9bh9QNwwa/qaw/UpplIwGW6hRx91nrK68h7/vU5VGu2lNW52ZfYja0DyhTYLgfgs/ObxRYfkWbfK5RZCI/oVz8rIf+zSQp3E/9ikyeBCtj82rawdGtMbO3WmWbxM+KeIUEJAShDPBW9LdMge5oE+lxqiMvtzApHXXeME/NE96YBwDqeBsrXSd008H50M2gKhlWPRZuFHhC6bDw6pjdTp76DVhLpbuV0kXEARVpn8R2iMyDIGrKKhq/KQBZRoVHe0aJ+6e8rVi3kXC3zbHw3VOPg+YxOPZmr+AmU4LF7dbGaOntF15HIJ74SzSRKA2xtCxfsn5YmbBn2H1BElEfWqLKmoQ0UjZfl39yer9WUh3382/d82OPDYjrVqAnzc2uqBwqI7q8jbKRjaeKUkJVN3N2a8dczVomdtvXACRDtopPdlCh9QeynvClMGDlzs3soo5V6K8mjwZNO+/NbezlYMV7oWwz7KmeNOB5TtdnWUguKlWQNDxvU/DFbJnLhxYQiUu+IWd2f50XOHZUZ2IPVMzur5lWuSn3L3KhVp+us8S03djpiEcQxJW7od3tPZMLrfupw05kfuUlVyuEBWKuL6MefM1UUysLZmVe2gCZy3Ae29wZwcVhx1EalXhiwLQ="
-    - GIT_ORG: maoo
-    - GIT_REPO: hugo-test
+    - GIT_ORG: symphonyoss
+    - GIT_REPO: Integrations-Docs
     - GIT_USER_NAME: Travis CI Foundation
-    - GIT_USER_EMAIL: travis+hugotest@symphony.foundation
+    - GIT_USER_EMAIL: travis+integrationsdocs@symphony.foundation
     - FILES_TO_PUSH: docs
 
 before_install: "wget https://github.com/spf13/hugo/releases/download/v0.22/hugo_0.22_Linux-64bit.deb ; sudo dpkg -i hugo*.deb ; hugo version"
