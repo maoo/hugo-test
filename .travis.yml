@@ -23,11 +23,6 @@ env:
   global:
     # - travis encrypt GIT_TOKEN=...
     - secure: "FQXcDowZwd+44o1X9acuBk4AhDFrjLw9Fc42DQZbeXHuq5c6yREtCdvTrNUuFZkD23KdTC/30a8m4ZnaNMirqm9si1XSu1egCHv6js5IG0WqlE6kugOvz0N+arFYjZeF/To2bOx3V+CENsnl9TIw7QO6bnEx19oai2YBqMRr/Xdg7r9Crlq9scLbut6wmTDJlGAAFhbGcLX2g9rZyJroPMIdZA4CwSHt0iZ1wPX08+P+jTo7umSosG3iPNMtV99KGymOBdVLre9fk7Nkxva0xBzGGoLE0Q0z90BEFUWy5X13HPxmEItMAfUnMSyFSYRzcZ9rMmDKXnADKwAPk9YnMM9xT//GnYHdKPexiH1nhQ/mpjvmzNTD9JTo6IjbJKXoBHqkbx4HcCM6EXwBK5tiGXQ6IakMt6MWW6vHOFc0//5mCKYJ+lyZNDAnQkl/ja2/1oWnco6V3tAIA8b+Tb5ufVq16E7x0ODsCFSlXbqgjSEYG7xbdYn62oZUIMVrVO14KP5w2YpeImpgzD1unRbUO9+klB9CUX+Ym0Fo1kgEfRps3GZTE4AprEOwcy67fSPRUDzkWj0fCGs+S0v0LrksmRCTa9u92WWlw3MWnCwUPM7pwtVRY5PI9ooFZhAxxKIR7ylitVdpwEyg/9kHZwehO3MFNZCqrMUMCip2L5JjpxY="
-    - GIT_ORG: symphonyoss
-    - GIT_REPO: Integrations-Docs
-    - GIT_USER_NAME: Travis CI Foundation
-    - GIT_USER_EMAIL: travis+integrationsdocs@symphony.foundation
-    - FILES_TO_PUSH: docs
 
 before_install: "wget https://github.com/spf13/hugo/releases/download/v0.22/hugo_0.22_Linux-64bit.deb ; sudo dpkg -i hugo*.deb ; hugo version"
 
@@ -35,4 +30,12 @@ install: true
 
 script: hugo
 
-after_success: "curl -L https://raw.githubusercontent.com/symphonyoss/contrib-toolbox/master/scripts/push-to-git.sh | bash"
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GIT_TOKEN
+  name: Travis CI Foundation
+  email: travis+integrationsdocs@symphony.foundation
+  local_dir: docs
+  on:
+    branch: master
